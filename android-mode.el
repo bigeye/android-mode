@@ -493,6 +493,7 @@ logs"
 (android-defun-maven-task "test")
 (android-defun-maven-task "install")
 (android-defun-maven-task "android:deploy")
+(android-defun-maven-task "install android:deploy")
 (android-defun-maven-task "android:redeploy")
 (android-defun-maven-task "android:undeploy")
 
@@ -549,6 +550,7 @@ logs"
     ("i" . android-build-install)
     ("r" . android-build-reinstall)
     ("u" . android-build-uninstall)
+    ("s" . android-maven-install-android-deploy)
     ("a" . android-start-app)))
 
 (defvar android-mode-map (make-sparse-keymap))
