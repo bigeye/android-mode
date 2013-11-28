@@ -262,6 +262,11 @@ defined sdk directory. Defaults to `android-mode-sdk-dir'."
       (goto-char pos)
       (android-logcat-find-file))))
 
+(defun android-logcat-erase-buffer ()
+  (interactive)
+  (let ((buffer-read-only nil))
+    (erase-buffer)))
+
 (defvar android-logcat-map
   (let ((map (make-sparse-keymap)))
     (define-key map (kbd "RET") 'android-logcat-find-file)
@@ -271,6 +276,7 @@ defined sdk directory. Defaults to `android-mode-sdk-dir'."
     (define-key map (kbd "q") 'delete-window)
     (define-key map (kbd "f") 'android-logcat-set-filter)
     (define-key map (kbd "c") 'android-logcat-clear-filter)
+    (define-key map (kbd "C") 'android-logcat-erase-buffer)
     map))
 
 (defun android-logcat-prepare-msg (msg)
