@@ -570,7 +570,8 @@ logs"
   android-mode-map)
 
 (add-hook 'dired-mode-hook (lambda () (when (android-root) (android-mode t))))
-(add-hook 'find-file-hook (lambda () (when (android-root) (android-mode t))))
+(add-hook 'find-file-hook (lambda () (when (and (not (equal major-mode 'git-commit-mode))
+                                                 (android-root)) (android-mode t))))
 
 (provide 'android-mode)
 
